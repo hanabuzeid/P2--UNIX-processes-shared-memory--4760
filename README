@@ -1,0 +1,21 @@
+Readme for the programs master and bin_adder.
+
+This application sums integers from a datafile.  The integers are  consecutive one to a line.  It employs multiple processes and shared memory and a binary tree algorithm to accomplish this. The main program is called master.  The child program it forks many times is called bin_adder.   It uses the "Bakery Algorithm" to protect a critical section where a data file, "adder_log," is written to by the bin_adder child process.    The data recorded is the Time, process ID,  Index and Depth at which the particular process is working.  Depth in the binary tree algorithm.   The index is the starting index within the integer array (the one read in from the data file for summing) that this process is operating on. It will add this value to another index, which is a distance away determined by the max depth and depth of this particular data set.    The ID of this process is recorded, along with a time stamp, to show at which time this was done.
+
+The final results will be output to the screen and to a log file "output.log".    It outputs the state of the integer array, where the summing operations are done in place.  The first position of that array, index 0, is where the sum of the original set of integers should be. It will be correct if the application was not aborted before being able to complete. 
+
+
+    Command line use is as follows:
+
+    master [-h] [-s i] [-t time] datafile
+
+    -h          Gets you this, which is help in order to use this program.
+    -s x        Indicates the number of children that are allowed to exist in the system at a the same time. (Default 20)
+    -t time     The time in seconds after which the process will terminate, even if it has not finished. (Default 100)
+    Datafile    Input file containing one integer on each line.
+
+    You can terminate this program and its child processes at any time with at ctrl-C.
+
+  To compile you will need to source files, each compiled into separate executables.    master.c and bin_adder.c.    master.c is the parent that runs the child bin_adder.
+  You will need -lpthread and -pthread as an option on the gcc command line for master.c, since it is using a thread for the timer.   These programs are Linux based.  The Makefile supplied needs the two source files in its directory in order to compile.
+   
