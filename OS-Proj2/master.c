@@ -34,7 +34,6 @@ int *g_MaxDepth; // The maximum depth for the binary tree for the current data s
 
 void destroySharedMemForData();
 void destroySharedMemForBA();
-//#define FILENAME "sharedata.txt"
 
 int get_shared_block(char* filename,int size, int proj_id)
 {
@@ -252,11 +251,7 @@ void spawnProcesses(int number, int maxProcesses)
             deltaIndex *= 2;
         }
         
-        //printf(" int array values at depth = % d: ", depth);
-       // for(i=0; i < *g_N; i++){
-       //     printf("%d, ", g_numberArray[i]);
-       // }
-      //  printf("\n");
+        
     }
     logResults();
 }
@@ -316,18 +311,6 @@ void handle_SIGINT()
 }
 
 
-/*
- 
- //Shared memory globals
-int g_numberArray; // For the number data
-int g_N; // the size of the number array
-
-int *g_Tokens;  //The tokens array for the processes for the Bakery Algorithm
-int *g_Choosing; //The doorway guard array for the Bakery Algorithm
-pid_t *g_PIDs; //id's array for the processes for the Bakery Algorithm
-int *g_NumProcesses; // The number of processes
- 
- */
 
 //Setting up shared memory for the Bakery Algorithm
 void setupSharedMemForBA(int numberOfProcesses)
