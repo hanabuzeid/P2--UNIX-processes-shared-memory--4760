@@ -161,9 +161,6 @@ int main(int argc,char **argv)
 
   //  printf("Hello World, from bin_adder\n");
     if(argc == 3){ 
-      //  printf("bin_adder child, pid = %d, index = %s, depth = %s\n",getpid(), argv[1], argv[2]);        
-        
-       // printf("read memory block, create if not there.\n");
         i = atoi(argv[1]);
         numIndex = i;
         depth = atoi(argv[2]);
