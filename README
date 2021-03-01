@@ -19,3 +19,7 @@ The final results will be output to the screen and to a log file "output.log".  
   To compile you will need to source files, each compiled into separate executables.    master.c and bin_adder.c.    master.c is the parent that runs the child bin_adder.
   You will need -lpthread and -pthread as an option on the gcc command line for master.c, since it is using a thread for the timer.   These programs are Linux based.  The Makefile supplied needs the two source files in its directory in order to compile.
    
+EXECUTION :
+Run "make"  
+./master -h
+./master [-n x] [-s x] [-t time] datafile
